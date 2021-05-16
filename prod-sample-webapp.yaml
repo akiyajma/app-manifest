@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-webapp-service
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    name: http
+  selector:
+    app: simple-webapp
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-webapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-webapp
+  template:
+    metadata:
+      labels:
+        app: simple-webapp
+    spec:
+      containers:
+      - name: simple-webapp
+        image: gcr.io/cicd-310509/gke-deploy-tekton-demo:55e28e5cdc52211593241aca1415d28a55314d77
+        ports:
+          - containerPort: 80
