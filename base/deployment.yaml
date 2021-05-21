@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-webapp
+spec:
+  selector:
+    matchLabels:
+      app: simple-webapp
+  template:
+    metadata:
+      labels:
+        app: simple-webapp
+    spec:
+      containers:
+      - name: simple-webapp
+        image: gcr.io/cicd-310509/gke-deploy-tekton-demo:454873dca4b9f2a0373edebd91d546ac3eb29d0d
+        ports:
+          - containerPort: 80
+
