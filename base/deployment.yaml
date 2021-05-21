@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: simple-webapp
-        image: gcr.io/cicd-310509/gke-deploy-tekton-demo:454873dca4b9f2a0373edebd91d546ac3eb29d0d
+        image: gcr.io/cicd-310509/gke-deploy-tekton-demo:c3fa4724f3667502cd7740d5de4b3fdd44af14d7
         ports:
           - containerPort: 80
 
